@@ -15,7 +15,7 @@ def odom_cb(data):
     pose.header = data.header
     pose.pose = data.pose.pose
     path.poses.append(pose)
-    #rate.sleep()
+    #rate.sleep( )
 
 rospy.init_node('path_node')
 
@@ -23,7 +23,7 @@ odom_sub = rospy.Subscriber('/camera/odom/sample', Odometry, odom_cb)
 path_pub = rospy.Publisher('/path', Path, queue_size=10)
 
 if __name__ == '__main__':
-    r = rospy.Rate(0.5) # 0.5hz
+    r = rospy.Rate(0.3) # 0.5hz
     while not rospy.is_shutdown():
         path_pub.publish(path)
         r.sleep()
