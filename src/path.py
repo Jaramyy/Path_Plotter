@@ -23,7 +23,7 @@ odom_sub = rospy.Subscriber('/camera/odom/sample', Odometry, odom_cb)
 path_pub = rospy.Publisher('/path', Path, queue_size=10)
 
 if __name__ == '__main__':
-    r = rospy.Rate(0.5) # 10hz
+    r = rospy.Rate(0.5) # 0.5hz
     while not rospy.is_shutdown():
         path_pub.publish(path)
         r.sleep()
